@@ -1,0 +1,22 @@
+<div class="more">
+    <div class="container">
+        <div class="row">
+            <div class="article-list">
+                <h2>MORE ARTICLES</h2>
+                <% @articles.each do |article| %>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <section class="item item-<%= article.category.name %> shrink new">
+                            <%= link_to article do %>
+                                <div class="article-thumbnail"><%= image_tag article.thumbnail.to_s if article.thumbnail? %></div>
+                                <span class="category category-<%= article.category.name %>"><%= article.category.name %></span>
+                                <span class="date"><%= article.created_at.strftime("%Y/%m/%d") %></span>
+                                <div class="title"><%= article.title %></div>
+                            <% end %>
+                        </section>
+                    </div>
+                <% end %>
+                <%= will_paginate @articles %>
+            </div>
+        </div>
+    </div>
+</div>

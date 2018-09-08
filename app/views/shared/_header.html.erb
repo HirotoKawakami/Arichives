@@ -1,0 +1,42 @@
+<header class="header">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid"> 
+      <h1 class="site-name"><%= link_to "ARCHIVES", root_path %></h1>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="defaultNavbar1" >
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+          <li class="nav-item"><%= link_to "HOME", root_path %></li>
+          <li class="nav-item"><%= link_to "ABOUT", about_path %></li>
+          <li class="nav-item"><%= link_to "MUSIC", category_path(2) %></li>
+          <li class="nav-item"><%= link_to "RAILS", category_path(1) %></li>
+          <li class="nav-item"><%= link_to "OTHERS", category_path(3) %></li>
+          <li class="nav-item"><%= link_to "ADMIN", new_article_path, data: {turbolinks: :false} %></li>
+          <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li class="nav-item dropdown notification-dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id='dropdownMenu1' aria-haspopup="true"aria-expanded="true">
+              <%= current_user.notifications.where(read: false).count %> 
+              <i class="fa fa-bell" aria-hidden="true"></i>通知
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li class="dropdown-header text-center">Notifications</li>
+              <%= render current_user.notifications.where(read: false).order('created_at DESC').last(5) %> 
+            </ul>
+          </li> 
+        <% else %>
+          <li class="nav-item"><%= link_to "HOME", root_path %></li>
+          <li class="nav-item"><%= link_to "ABOUT", about_path %></li>
+          <li class="nav-item"><%= link_to "MUSIC", category_path(2) %></li>
+          <li class="nav-item"><%= link_to "RAILS", category_path(1) %></li>
+          <li class="nav-item"><%= link_to "OTHERS", category_path(3) %></li>
+        <% end %>
+        </ul>         
+      </div>
+      <!-- /.navbar-collapse --> 
+    </div>
+    <!-- /.container-fluid --> 
+  </nav>
+</header>

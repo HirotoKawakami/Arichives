@@ -1,0 +1,58 @@
+<div class="show">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-xs-12">
+                <div class="article-show article-<%= @article.id %>">
+                    <section class="item item-<%= @article.category.name %>">
+                        <div class="article-thumbnail">
+                            <%= image_tag @article.thumbnail.to_s if @article.thumbnail? %>
+                        </div>
+                        <div class="title"><%= @article.title %></div>
+                        <div class="category category-<%= @article.category.name %>"><%= @article.category.name %></div>
+                        <div class="date"><%= @article.created_at.strftime("%Y/%m/%d") %></div>
+                        <div class="content"><%= markdown(@article.content) %></div>
+                        <div class="like">
+                        <% if !current_user %>
+                            <div class="thunkyou" style="display: none">
+                                いいね！ありがとう！
+                                <br>
+                            </div>
+                            <%= render "shared/like", article: @article, guest: @guest%>
+                        <% end %>
+                        <div class="article-options">
+                        <% if current_user %>
+                            <%= link_to edit_article_path(params[:id]), data: {turbolinks: :false} do %>
+                                <button type="button" class="btn btn-primary">編集</button>
+                            <% end %>
+                            <%= link_to article_path(params[:id]), method: :delete, data: {confirm: "本当に削除しますか?"} do %>
+                                <button type="button" class="btn btn-danger">削除</button>
+                            <% end %>
+                        <% else %>
+
+                        <% end %>
+                        </div>
+                    </section>
+                    <span class="suggest_word">おすすめ記事</span>
+                    <div class="similar">
+                        <% @similar_articles.each do |similar_article| %>
+                            <div class="similar_link">
+                                <%= link_to similar_article.title, similar_article %>
+                            </div>
+                        <% end %>
+                    </div>
+                    <hr>
+                    <div class="suggest">
+                        <span class="previous_article">
+                        ＜ 　<%= link_to @previous_article.title, @previous_article if @previous_article %>
+                        </span>
+                        <span class="next_article">
+                            <%= link_to @next_article.title, @next_article if @next_article %>　＞
+                        </span>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

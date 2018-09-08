@@ -1,0 +1,665 @@
+html {
+    font-size: 62.5%;
+}
+body {
+    padding: 30px;
+    background: transparent !important;
+    color:  #333;
+    font-size: 1.2rem;
+    font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+a:link, a:visited, a:hover, a:active {
+    color: black !important;
+    text-decoration: none !important;
+}
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+blockquote {
+    font-style: initial !important;
+}
+
+/* header */
+header.header {
+    margin: 20px auto 0px auto;
+    background: transparent;
+    width: 80%;
+    border-radius: 10px;
+}
+header.header::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.header a {
+    color: #222222 !important;
+}
+.navbar-default {
+    background-color: transparent !important;
+    border-color: lightgray;
+    -webkit-box-shadow: 0px 10px 30px 0px rgba(51, 51, 51, 0.2);
+    box-shadow: 5px 5px 5px 0px rgba(51, 51, 51, 0.2);
+    background: #fff;
+}
+.nav {
+    position: relative;
+    margin-bottom: 0;
+    margin-top: -56px;
+    padding: 20px 10px 20px 10px !important;
+    list-style: none;
+    border: none;
+    box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 2px 3px -3px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.navbar-toggle {
+    border: none !important;
+}
+.navbar-toggle:hover {
+    background-color: transparent !important;
+}
+.navbar-nav {
+    margin: 0 !important;
+}
+.nav button {
+    border: none;
+    display: inline-block;
+    font-weight: bold;
+}
+.nav button:hover {
+    background-color:  transparent !important;
+}
+.site-name {
+    font-size: 26px;
+    padding-left: 10px;
+    float: left;
+    margin-bottom: 0;
+    line-height: 2;
+    text-align: center;
+    letter-spacing: 10px;
+    font-weight: lighter;
+}
+ul.nav-list {
+    display: table;
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+    float: right;
+    margin: 0;
+    position: absolute;
+    top: 23px;
+    left: 250px;
+    width: calc(100% - 300px);
+}
+li.nav-item {
+    display: table-cell;
+    text-align: center;
+    padding: 5px 3px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+.nav-item a {
+    position: relative;
+    display: inline-block;
+    transition: .3s;
+}
+.nav-item a::before,
+.nav-item a::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #222222;
+    transition: .3s;
+}
+.nav-item a::before {
+    top: 0;
+    left: 0;
+}
+.nav-item a::after {
+    bottom: 0;
+    right: 0;
+}
+.nav-item a:hover::before,
+.nav-item a:hover::after {
+    width: 100%;
+}
+
+
+/* footer */
+.footer {
+    margin: 60px auto 0px auto;
+    height: 100px;
+    width: 80%;
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: lightgray;
+    box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 2px 3px -3px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+}
+
+
+/* p5js */
+canvas {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -999;
+}
+
+
+/* 最新投稿 */
+.article-list h2 {
+    text-align: center;
+    font-size: 34px !important;
+    line-height: 30px !important;
+    margin: 30px 60px 60px 60px !important;
+    letter-spacing: 5px;
+}
+.article-list section.item {
+    display: inline-block;
+    text-align: left;
+    width: 85%;
+    height: 330px;
+    padding-bottom: 10px;
+    margin-bottom: 55px;
+    -webkit-box-shadow: 0px 10px 30px 0px rgba(51, 51, 51, 0.2);
+    box-shadow: 0px 10px 30px 0px rgba(51, 51, 51, 0.2);
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 5px;
+}
+section.new {
+    height: 250px !important;
+}
+.article-list .item img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.article-list .item:hover img {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+.col-md-4.col-sm-6.col-xs-12 {
+    padding: 0;
+    text-align: center;
+}
+.col-md-4{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    }
+.article-list .article-thumbnail {
+    width: 100%;
+    max-height: 70%;
+    margin-bottom: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.new .article-thumbnail {
+    max-height: 70%;
+}
+.article-list .article-thumbnail img {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+	overflow: hidden;
+}
+.article-list .title {
+    text-align: left;
+    font-size: 15px;
+    padding: 5px 10px 0px 10px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+.article-list .category {
+    padding: 10px;
+}
+.article-list .date {
+    text-align: left;
+    color:  gray;
+}
+
+
+/* 記事hoverr処理 */
+.article-list .item img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    opacity: 1;
+    overflow: hidden;
+}
+.article-list .item:hover img {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    opacity: .5;
+}
+.article-list .article-thumbnail {
+    overflow: hidden;
+}
+.article-list .item-RAILS a:hover {
+    color: #FF4F50 !important;
+}
+.item-RAILS .article-thumbnail {
+    background: #FF4F50 !important;
+}
+#5D99FF
+.article-list .item-OTHERS a:hover {
+    color: #5D99FF !important;
+}
+.item-OTHERS .article-thumbnail {
+    background: #5D99FF !important;
+}
+
+$defaultDuration: .3s;
+$primaryColour: #ececec;
+$secondaryColour: #666;
+$shadowColour: rgba(0, 0, 0, .6);
+
+// As is often the case, some devices/browsers need additional code to get CSS to work
+// in the most desired way. These mixins are used to quickly drop in hacks for each element
+@mixin hideTapHighlightColor() {
+    //Prevent highlight colour when element is tapped
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+@mixin hardwareAccel() {
+    //Improve performance on mobile/tablet devices
+    transform: translateZ(0);
+}
+
+@mixin improveAntiAlias() {
+    //Improve aliasing on mobile/tablet devices
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.shrink {
+    display: inline-block;
+    transition-duration: $defaultDuration;
+    transition-property: transform;
+
+    @include hideTapHighlightColor();
+    @include hardwareAccel();
+    @include improveAntiAlias();
+
+    &:hover {
+        transform: scale(.9);
+    }
+}
+
+/* all articles */
+.article-list .content {
+    font-size: 12px;
+    color: gray;
+    padding: 10px 10px 0px 10px;
+    line-height: 1.2;
+}
+span.view_more {
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    color: darkgray;
+    font-weight: lighter;
+    letter-spacing: 5px;
+}
+span.view_more a {
+    color: #fff !important;
+}
+.button{
+    display: inline-block;
+    padding: 20px 50px;
+    margin: 20px 0;
+    position: relative;
+    color: #ecf0f1;
+}
+#button-5{
+    color: #fff;
+    overflow: hidden;
+    padding: 40px;
+}
+#button-5:before, #button-5:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    top: 0;
+    left: -100%;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}  
+#button-5:after{
+    bottom: 0 !important;
+    top: auto !important;
+    right: -100%;
+    left: auto;
+}
+#button-5:hover:before{
+    left: 0;
+}
+#button-5:hover:after{
+    right: 0;
+}
+
+
+
+/* 記事詳細 */
+.article-show {
+    padding: 0px 22.5%;
+}
+.article-show .article-thumbnail {
+    height: auto;
+}
+.article-show .article-thumbnail img {
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+.article-show .title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #666666;
+    padding: 20px 0px 10px 0px;
+}
+.article-show .category {
+    display: inline-block;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.article-show .date {
+    display: inline-block;
+    font-weight: bold;
+    color: dimgray;
+    letter-spacing: 3px;
+}
+.article-show .content {
+    margin: 30px 0px 100px 0px;
+}
+.article-show .content p {
+    font-size: 18px;
+    line-height: 36px;
+    color: gray;
+}
+.like button {
+    border: none;
+    border-radius: 50% !important;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+.like button:hover {
+    background-color: transparent !important;
+} 
+span.glyphicon.glyphicon-heart-empty {
+    font-size: 30px;
+}
+span.glyphicon.glyphicon-heart {
+    font-size: 30px;
+    color: firebrick;
+}
+span.suggest_word {
+    color: #222222;
+    font-weight: bold;
+}
+span.likes-count {
+    font-size: 18px;
+    color: firebrick;
+    font-weight: bold;
+}
+.similar_link {
+    padding: 30px 0px;
+    border-top: solid 1px #ddd;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.similar a {
+    color: #222222;
+}
+.suggest {
+    padding: 20px 0px;
+}
+.suggest::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.suggest a {
+    font-size: 15px;
+    color: gray;
+    font-weight: bold;
+}
+.previous_article {
+    float: left;
+}
+.next_article {
+    float: right;
+}
+
+
+/* dropzone */
+.dropzone {
+    min-height: 150px;
+    border: 2px dashed rgba(0, 0, 0, 0.3) !important;
+    background: white;
+    padding: 20px 20px;
+}
+.dz-message {
+    font-size: 16px;
+    text-align: center;
+    margin: 0
+}
+
+
+
+/* ありがとう吹き出し */
+.thunkyou {
+    position: relative;
+    padding: 20px;
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: #bdffad;
+    border-radius: 10px;    
+    color: darkslategray;
+    font-weight: bold;
+}
+
+.thunkyou::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: 20px;
+    bottom: -15px;
+    border-top: 15px solid #bdffad;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+}
+
+/* レスポンシブ */
+@media (min-width: 768px) {
+    .site-name {
+        line-height: 4;
+    }
+    .site-name {
+    font-size: 26px;
+    padding-left: 10px;
+    float: left;
+    margin-bottom: 0;
+    line-height: 2;
+    text-align: center;
+    letter-spacing: 6px;
+}
+    .nav {
+        position: relative;
+        margin-bottom: 0;
+        margin-top: -56px;
+        padding: 20px 10px 20px 10px !important;
+        list-style: none;
+        border: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+    }   
+  }
+
+
+
+
+  @media (max-width: 768px) {
+    body {
+        padding: 5px 0 0 0 !important;
+    }
+    /* ヘッダー */
+    header.header {
+        margin: 20px auto 0px auto;
+        background: transparent;
+        width: 95%;
+        border-radius: 10px;
+    }
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background-color: transparent !important;
+    }
+    .site-name {
+        font-size: 26px;
+        padding-left: 10px;
+        float: left;
+        margin-bottom: 0;
+        line-height: 2;
+        text-align: center;
+        letter-spacing: 6px;
+    }
+    .navbar {
+        border-radius: 6px;
+    }
+
+    /*  p5js */
+    canvas {
+        position: fixed;
+        left: 0;
+        top: 200px;
+        z-index: -999;
+    }
+
+    /*  記事一覧 */
+    .top .container {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .article-list h2 {
+        text-align: center;
+        font-size: 24px !important;
+        line-height: 30px !important;
+        margin: 0 0 20px 0 !important;
+        letter-spacing: 2px;
+        color: #222222;
+    }
+    .article-list section.item {
+        margin-bottom: 20px !important;
+    }
+    span.view_more {
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        color: darkgray;
+        font-weight: lighter;
+        letter-spacing: 2px;
+    }
+    #button-5 {
+        color: #34495e;
+        overflow: hidden;
+        padding: 20px 40px;
+    }
+
+
+    /* 記事詳細 */
+    .show .container {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    .article-show {
+        padding: 0 !important;
+    }
+    .article-show .title {
+        font-size: 19px;
+    }
+    .article-show .category {
+        font-size: 12px;
+    }
+    .article-show .date {
+        font-size: 12px;
+    }
+    .article-show .content {
+        margin: 20px 0px 40px 0px;
+    }
+    .article-show .content p {
+        font-size: 14px;
+        line-height: 2;
+        color: #666;
+    }
+    .article-show h2 {
+        font-size: 18px;
+        line-height: 10px;
+    }
+    .article-show h1 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+    span.suggest_word {
+        color: #222222;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    .similar_link {
+        padding: 20px 0px;
+        font-size: 13px;
+        color: #666;
+        letter-spacing: 2px;
+    }
+    .suggest {
+        padding: 20px 0px;
+        font-weight: bold;
+    }
+    .suggest a {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    /* more */
+    .more .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* フッター */
+    .footer {
+        margin: 60px auto 20px auto;
+        height: 100px;
+        width: 95%;
+        border: solid 2px;
+        border-radius: 10px;
+        border-color: lightgray;
+        -webkit-box-shadow: 0px 10px 30px 0px rgba(51, 51, 51, 0.2);
+        box-shadow: 5px 5px 5px 0px rgba(51, 51, 51, 0.2);
+        background: transparent;
+    }
+}

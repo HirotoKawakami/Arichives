@@ -1,0 +1,25 @@
+<% if Like.find_by(article_id: article.id, guest_id: guest.id) %>
+<%= form_for(article.likes.find_by(guest_id: guest.id), method: :delete, remote: true) do |f| %>
+    <div><%= hidden_field_tag :article_id, article.id %></div>
+    <%= button_tag(class: "btn btn-default btn-xs", id: "btn2") do %>
+    <%= content_tag :span, "", class: "glyphicon glyphicon-heart" %>
+    <% end %>
+    <span class="likes-count"><%= article.likes_count %></span>
+<% end %>
+<% else %>
+<%= form_for(article.likes.build, remote: true) do |f| %>
+    <div><%= hidden_field_tag :article_id, article.id %></div>
+    <%= button_tag(class: "btn btn-default btn-xs", id: "btn1") do %>
+    <%= content_tag :span, "", class: "glyphicon glyphicon-heart-empty" %>
+    <% end %>
+    <span class="likes-count"><%= article.likes_count %></span>
+<% end %>
+<% end %>
+</div>
+
+<script>
+
+
+</script>
+
+
