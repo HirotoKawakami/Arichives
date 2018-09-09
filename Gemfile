@@ -34,6 +34,7 @@ gem 'devise'
 
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog-aws'
 
 gem 'wysiwyg-rails'
 gem 'font-awesome-rails'
