@@ -146,6 +146,7 @@ li.nav-item {
     height: 100px;
     width: 80%;
     border: none;
+    border-radius: 6px !important;
     box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
     -webkit-box-shadow: 0px 2px 3px -3px rgba(0,0,0,0.6);
     -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
@@ -656,7 +657,8 @@ span.likes-count {
         margin: 60px auto 20px auto;
         height: 100px;
         width: 95%;
-        border: none;
+        border: solid 1px transparent;
+        border-radius: 6px !important;
         -webkit-box-shadow: 0px 10px 30px 0px rgba(51, 51, 51, 0.2);
         box-shadow: 5px 5px 5px 0px rgba(51, 51, 51, 0.2);
         background: #fff;
