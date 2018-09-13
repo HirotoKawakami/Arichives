@@ -9,7 +9,7 @@ class Article < ApplicationRecord
     belongs_to :user
     belongs_to :category
     has_many :likes, dependent: :destroy
-    has_many :notifications
+    has_many :notifications, dependent: :destroy
 
     def next
         Article.order(created_at: :desc, id: :desc).where("created_at <= ? and id < ?", created_at, id).first
